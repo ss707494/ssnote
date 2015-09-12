@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+
+    <Button
+        android:id="@+id/button"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ntton" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/button">
+
+
+        <Button
+            android:id="@+id/btn_add_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="doAdd"
+            android:text="Add" />
+
+        <Button
+            android:id="@+id/btn_show_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="doShow"
+            android:text="Show" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="New Button" />
+
+</RelativeLayout>
