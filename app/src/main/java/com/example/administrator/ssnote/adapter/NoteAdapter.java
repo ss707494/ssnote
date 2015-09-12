@@ -49,6 +49,7 @@ public class NoteAdapter extends ArrayAdapter<Note> {
                 "bookID=" + n.getNotebook_id() +
                         "content=" + n.getNote_content()
                         + "\t" + n.getNote_answer() + "\t" + n.getNote_create_time();
+        msg="";
         viewHolder.msg.setText(msg);
         return view;
     }

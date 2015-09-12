@@ -137,6 +137,25 @@ public class SSNoteDb {
     }
 
 
+    /**
+     * 根据noteid 查询 book
+     */
+    public NoteBook queryByNoteId(int id) {
+        NoteBook noteBook = null;
+        Cursor c = db.query("notebook", null, "notebook_id=?", new String[]{String.valueOf(id)}, null, null, null);
+        if (c.moveToNext()) {
+            noteBook=new NoteBook();
+            noteBook.setNotebook_id(id).setNotebook_name(c.getString(c.getColumnIndex("notebook_name")))
+                    .setNotebook_desc(c.getString(c.getColumnIndex("notebook_desc")))
+            ;
+        }
+        if (c != null) {
+            c.close();
+        }
+        return noteBook;
+    }
+
+
 
 
 
