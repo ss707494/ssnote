@@ -47,4 +47,12 @@ public abstract class BaseActivity extends Activity {
     }
 
 
+    public void doAdd(View view) {
+    }
+
+    public void doShow(View view) {
+    }
+
+    public void doTestUpdate(View view) {
+    }
 }

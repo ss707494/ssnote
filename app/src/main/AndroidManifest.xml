@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".activity.EditNoteActivity" >
         </activity>
+        <activity android:name=".activity.AddNoteActivity" />
         <activity
             android:name=".activity.Edit_State"
             android:label="@string/title_activity_edit__state" >

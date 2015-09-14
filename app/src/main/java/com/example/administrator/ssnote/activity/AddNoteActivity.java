@@ -84,6 +84,7 @@ public class AddNoteActivity extends BaseActivity {
 
         db.insertNote(selectNote);
         startService(new Intent(this, RemindService.class));
+        finish();
 
     }
 }
