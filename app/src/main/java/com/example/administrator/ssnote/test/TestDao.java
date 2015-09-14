@@ -50,8 +50,8 @@ public class TestDao extends Activity {
 
             Note n = new Note().setNotebook_id(ra.nextInt(3) + 1).setNote_name("name" + ra.nextInt(100))
                     .setNote_content("content" + ra.nextInt(100)).setNote_answer("answer" + ra.nextBoolean())
-                    .setNote_create_time(new Date().getTime() - ra.nextInt(500000))
-                    .setNote_next_time(new Date().getTime() + ra.nextInt(50000000))
+                    .setNote_create_time(new Date().getTime() - ra.nextLong())
+                    .setNote_next_time(new Date().getTime() + ra.nextLong())
                     .setNote_style(ra.nextInt(3)).setNote_level(ra.nextInt(9));
             db.insertNote(n);
         }

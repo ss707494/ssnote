@@ -86,12 +86,38 @@ public class SSNoteDb {
      */
 
 //    private
+
+    /**
+     * 查  note by id
+     */
+    public Note queryNoteById(int id) {
+        Note note = new Note();
+        Cursor cursor = db.query("note", null, "note_id=?", new String[]{String .valueOf(id)}, null, null, "note_next_time");
+        if (cursor.moveToFirst()) {
+            do {
+                note.setNote_id(cursor.getInt(cursor.getColumnIndex("note_id")))
+                        .setNotebook_id(cursor.getInt(cursor.getColumnIndex("notebook_id")))
+                        .setNote_name(cursor.getString(cursor.getColumnIndex("note_name")))
+                        .setNote_content(cursor.getString(cursor.getColumnIndex("note_content")))
+                        .setNote_answer(cursor.getString(cursor.getColumnIndex("note_answer")))
+                        .setNote_create_time(cursor.getLong(cursor.getColumnIndex("note_create_time")))
+                        .setNote_next_time(cursor.getLong(cursor.getColumnIndex("note_next_time")))
+                        .setNote_style(cursor.getInt(cursor.getColumnIndex("note_style")))
+                        .setNote_level(cursor.getInt(cursor.getColumnIndex("note_level")));
+            } while (cursor.moveToNext());
+        }
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        return note;
+    }
     /**
      * 查 所有的 note
      */
     public List<Note> queryAllNotes() {
         List<Note> list = new ArrayList<>();
-        Cursor cursor = db.query("note", null, null, null, null, null, "note_create_time");
+        Cursor cursor = db.query("note", null, null, null, null, null, "note_next_time");
         if (cursor.moveToFirst()) {
             do {
                 Note note = new Note();
@@ -122,7 +148,7 @@ public class SSNoteDb {
         Cursor c = db.query("notebook", null, null, null, null, null, null);
         if (c.moveToFirst()) {
             do {
-                NoteBook book=new NoteBook();
+                NoteBook book = new NoteBook();
                 book.setNotebook_id(c.getInt(c.getColumnIndex("notebook_id")))
                         .setNotebook_name(c.getString(c.getColumnIndex("notebook_name")))
                         .setNotebook_desc(c.getString(c.getColumnIndex("notebook_desc")));
@@ -144,7 +170,7 @@ public class SSNoteDb {
         NoteBook noteBook = null;
         Cursor c = db.query("notebook", null, "notebook_id=?", new String[]{String.valueOf(id)}, null, null, null);
         if (c.moveToNext()) {
-            noteBook=new NoteBook();
+            noteBook = new NoteBook();
             noteBook.setNotebook_id(id).setNotebook_name(c.getString(c.getColumnIndex("notebook_name")))
                     .setNotebook_desc(c.getString(c.getColumnIndex("notebook_desc")))
             ;
@@ -155,25 +181,30 @@ public class SSNoteDb {
         return noteBook;
     }
 
+    public static final int SUCCESS = 1;
+    public static final int FAIL = 0;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /**
+     * 更新Note数据
+     */
+    public int updateNote(Note note) {
+        ContentValues values = new ContentValues();
+        values.put("note_id", note.getNote_id());
+        values.put("notebook_id", note.getNotebook_id());
+        values.put("note_name", note.getNote_name());
+        values.put("note_content", note.getNote_content());
+        values.put("note_answer", note.getNote_answer());
+        values.put("note_create_time", note.getNote_create_time());
+        values.put("note_next_time", note.getNote_next_time());
+        values.put("note_style", note.getNote_style());
+        values.put("note_level", note.getNote_level());
+        if (
+                db.update("note", values, "note_id=?", new String[]{String.valueOf(note.getNote_id())})
+                        == 1) {
+            return SUCCESS;
+        } else return FAIL;
+    }
 
 
 }

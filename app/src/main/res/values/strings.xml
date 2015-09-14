@@ -10,4 +10,5 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="save">save</string>
     <string name="edit">edit</string>
+    <string name="title_activity_edit__state">Edit_State</string>
 </resources>

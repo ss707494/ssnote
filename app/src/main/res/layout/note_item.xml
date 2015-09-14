@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:nestedScrollingEnabled="false">
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:nestedScrollingEnabled="false"
+    android:gravity="center"
+    android:background="@drawable/list_green_single"
+    android:baselineAligned="false">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="id"
-        android:textSize="28sp"
-        android:id="@+id/note_id"
-        />
-    <TextView
+        android:layout_weight="4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="name"
         android:textSize="26sp"
         android:id="@+id/note_name"
-        />
+        android:gravity="center_vertical" />
     <TextView
-        android:layout_width="fill_parent"
+        android:layout_weight="2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:ellipsize="marquee"
+        android:textSize="14sp"
+        android:lines="2"
+
+        android:id="@+id/note_desc"
+        android:gravity="bottom" />
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
         android:id="@+id/note_msg"
-        android:text="skdlfjlsdkjflskjdfdfkdksf;lsdkjf;lkjsd;lfkjsd;lfkj;lkjsd;fladjf;"
-        android:lines="1" />
+        android:text="d;dd"
+        android:lines="1"
+        android:gravity="end" />
 </LinearLayout>
