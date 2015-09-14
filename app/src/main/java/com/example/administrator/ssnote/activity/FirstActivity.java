@@ -89,6 +89,7 @@ public class FirstActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        noteList = db.queryAllNotes();
         list_red.clear();
         list_green.clear();
         for (Note note : noteList) {
@@ -100,6 +101,19 @@ public class FirstActivity extends BaseActivity {
         }
         adapter.notifyDataSetChanged();
         adapter_green.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        startService(new Intent(FirstActivity.this, RemindService.class));
+        finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onStart();
     }
 
     /**
@@ -142,7 +156,7 @@ public class FirstActivity extends BaseActivity {
         db.insertNotebook(noteBook);
         noteBook.setNotebook_name("Number three").setNotebook_desc("3");
         db.insertNotebook(noteBook);
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 8; i++) {
 
             Note n = new Note().setNotebook_id(ra.nextInt(3) + 1).setNote_name("name" + ra.nextInt(100))
                     .setNote_content("content" + ra.nextInt(100)).setNote_answer("answer" + ra.nextBoolean())
@@ -152,8 +166,10 @@ public class FirstActivity extends BaseActivity {
             db.insertNote(n);
         }
         Toast.makeText(this, "add complite", Toast.LENGTH_SHORT).show();
-        onStart();
-        setContentView(R.layout.test_dao);
+        onResume();
     }
 
+    public void doAddNote(View view) {
+        startActivity(new Intent(FirstActivity.this, AddNoteActivity.class));
+    }
 }

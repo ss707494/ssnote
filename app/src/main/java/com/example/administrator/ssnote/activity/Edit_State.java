@@ -74,7 +74,7 @@ public class Edit_State extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void doSave(View view) {
+    public void doUpdate(View view) {
         if (!timePicker.is24HourView()) {
             timePicker.setIs24HourView(true);
         }
@@ -91,6 +91,6 @@ public class Edit_State extends BaseActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        super.doSave(view);
+        finish();
     }
 }

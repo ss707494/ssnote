@@ -1,5 +1,7 @@
 package com.example.administrator.ssnote.entity;
 
+import java.util.Date;
+
 /**
  * Created by Administrator on 2015/9/9.
  */
@@ -13,6 +15,18 @@ public class Note {
     private Long note_next_time;
     private Integer note_style;
     private Integer note_level;
+
+    public Note() {
+        notebook_id = 1;
+        note_name = "";
+        note_content = "";
+        note_answer = "";
+        note_create_time = new Date().getTime();
+        note_next_time = new Date().getTime() + 1L * 24 * 60 * 60 * 1000;
+        note_style = 1;
+        note_level = 0;
+    }
+
 
     public Integer getNote_id() {
         return note_id;

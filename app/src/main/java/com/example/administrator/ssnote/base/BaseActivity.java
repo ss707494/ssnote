@@ -27,7 +27,10 @@ public abstract class BaseActivity extends Activity {
         super.onCreate(savedInstanceState);
         db = SSNoteDb.getInstance(this);
         noteList = db.queryAllNotes();
+        noteBookList = db.queryAllNotebooks();
     }
+
+
 
     public void doBack(View view) {
         finish();
@@ -42,4 +45,6 @@ public abstract class BaseActivity extends Activity {
             Toast.makeText(this, "出错了.", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 }
