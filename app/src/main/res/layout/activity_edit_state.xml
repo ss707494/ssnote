@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.ssnote.activity.Edit_State">
+
+    <include
+        android:id="@+id/edit_state_action_bar"
+        layout="@layout/action_bar" />
+
+    <include layout="@layout/bottom_edit"
+        android:id="@+id/edit_state_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_below="@id/edit_state_action_bar"
+        android:layout_above="@id/edit_state_bottom"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_below="@id/edit_state_action_bar"
+            android:layout_width="match_parent"
+            android:id="@+id/state_name"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:text="name"
+            android:textSize="33sp"
+            />
+        <LinearLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <EditText
+                android:layout_width="0dp"
+                android:id="@+id/state_level"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="level"
+                />
+            <EditText
+                android:layout_width="0dp"
+                android:id="@+id/state_style"
+                android:hint="state"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="10"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:gravity="end"
+            android:layout_height="0dp">
+
+
+            <DatePicker
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/datePicker" />
+
+            <TimePicker
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/timePicker" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

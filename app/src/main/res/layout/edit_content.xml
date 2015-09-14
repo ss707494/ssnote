@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit_content"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <EditText
+        android:id="@+id/edit_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6fee90"
+        android:paddingStart="19dp"
+        android:hint="title"
+        android:textColorHint="#000000"
+        android:textIsSelectable="false"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/edit_msg"
+        android:lines="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6fee90"
+        android:hint="message"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
+
+        />
+
+    <EditText
+        android:id="@+id/edit_ques"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#318baa"
+        android:elegantTextHeight="false"
+        android:ellipsize="none"
+        android:gravity="left"
+        android:hint="ques"
+        android:paddingStart="13dp"
+        android:textColorHint="#000" />
+
+    <EditText
+        android:id="@+id/edit_answer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#b079d4"
+        android:gravity="left"
+        android:hint="answer"
+        android:paddingStart="13dp"
+        android:textColorHint="#000" />
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btn_edit_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_action_back_cab"
+        android:onClick="doBack"
+
+        android:layout_alignBottom="@+id/linearLayout" />
+    <Button
+        android:id="@+id/edit_edit"
+        android:layout_width="wrap_content"
+        android:onClick="doEdit"
+        android:layout_height="wrap_content"
+        android:text="@string/edit" />
+
+    <Button
+        android:id="@+id/edit_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/edit_edit"
+        android:onClick="doSave"
+        android:text="@string/save" />
+
+</LinearLayout>
