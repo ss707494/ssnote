@@ -39,6 +39,7 @@ public class NoticeActivity extends EditNoteActivity {
     }
 
     public void doGood(View view) {
+        if (dobefore(view))return;
         Integer note_style = selectNote.getNote_style();
         Integer note_level = selectNote.getNote_level();
         if (note_style > 2) {
@@ -55,6 +56,7 @@ public class NoticeActivity extends EditNoteActivity {
     }
 
     public void doOk(View view) {
+        if (dobefore(view))return;
         Integer note_style = selectNote.getNote_style();
         Integer note_level = selectNote.getNote_level();
             if (note_level > 8) {
@@ -66,16 +68,18 @@ public class NoticeActivity extends EditNoteActivity {
         doAct(view);
     }
     public void doNearly(View view) {
+        if (dobefore(view))return;
         Integer note_style = selectNote.getNote_style();
         Integer note_level = selectNote.getNote_level();
         if (note_level < 1) {
-            selectNote.setNote_style(note_style<2?1:note_style+1);
+            selectNote.setNote_style(note_style < 2 ? 1 : note_style + 1);
         } else {
             selectNote.setNote_level(note_level + 1);
         }
         doAct(view);
     }
     public void doForget(View view) {
+        if (dobefore(view))return;
         Integer note_style = selectNote.getNote_style();
             Integer note_level = selectNote.getNote_level();
         if (note_style < 2) {
@@ -91,6 +95,14 @@ public class NoticeActivity extends EditNoteActivity {
         doAct(view);
     }
 
+    private boolean dobefore(View view) {
+        if (selectNote.getNote_style() == 4) {
+            selectNote.setNote_next_time(HandleTimeUtil.handle4(selectNote.getNote_level(), selectNote.getNote_next_time()));
+            doSave(view);
+            return true;
+        }
+        return false;
+    }
     private void doAct(View view) {
         Long x=
                 HandleTimeUtil.handle(selectNote.getNote_style(), selectNote.getNote_level(), selectNote.getNote_next_time());

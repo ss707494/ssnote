@@ -55,7 +55,7 @@ public class EditNoteActivity extends BaseActivity {
     private void initData() {
         title.setText(selectNote.getNote_name());
         String msg = "";
-        msg += selectNotebook.getNotebook_name();
+        msg = "style:" + selectNote.getNote_style() + "\nlevel" + selectNote.getNote_level();
         message.setText(msg);
         ques.setText(selectNote.getNote_content());
         ans.setText(selectNote.getNote_answer());
