@@ -206,5 +206,13 @@ public class SSNoteDb {
         } else return FAIL;
     }
 
+    /**
+     * delete note
+     */
+    public boolean deleteNote(int id) {
+        int n=
+        db.delete("note", "note_id=?", new String[]{String.valueOf(id)});
+        return n == 1 ? true : false;
+    }
 
 }

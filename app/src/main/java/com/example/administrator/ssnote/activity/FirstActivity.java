@@ -33,14 +33,14 @@ public class FirstActivity extends BaseActivity {
      *
      * @param savedInstanceState
      */
-    private ListView list_first,list_view_red;
-    private ArrayAdapter<Note> adapter,adapter_green;
+    private ListView list_first, list_view_red;
+    private ArrayAdapter<Note> adapter, adapter_green;
     private
-         List<Note> list_green = new ArrayList<>(), list_red = new ArrayList<>();
+    List<Note> list_green = new ArrayList<>(), list_red = new ArrayList<>();
 
 
     private void init() {
-        list_view_red= (ListView) findViewById(R.id.list_first_red);
+        list_view_red = (ListView) findViewById(R.id.list_first_red);
         list_first = (ListView) findViewById(R.id.test_list_view);
 
 
@@ -51,10 +51,7 @@ public class FirstActivity extends BaseActivity {
                 list_green.add(note);
             }
         }
-
-
-
-         adapter = new NoteAdapter(this, R.layout.note_item_out, list_red);
+        adapter = new NoteAdapter(this, R.layout.note_item_out, list_red);
         list_view_red.setAdapter(adapter);
         list_view_red.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -65,7 +62,7 @@ public class FirstActivity extends BaseActivity {
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
         });
-         adapter_green = new NoteAdapter(this, R.layout.note_item, list_green);
+        adapter_green = new NoteAdapter(this, R.layout.note_item, list_green);
         list_first.setAdapter(adapter_green);
         list_first.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -118,6 +115,7 @@ public class FirstActivity extends BaseActivity {
 
     /**
      * Test code
+     *
      * @param view
      */
 //        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -128,10 +126,10 @@ public class FirstActivity extends BaseActivity {
 
     public void doShow(View view) {
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        Notification.Builder builder=
+        Notification.Builder builder =
                 new Notification.Builder(this);
         builder.setAutoCancel(true)
-                .setLargeIcon( BitmapFactory.decodeResource(getResources(),R.drawable.ic_reminder))
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_reminder))
                 .setSmallIcon(R.drawable.ic_reminder)
                 .setTicker("test ticker")
                 .setWhen(System.currentTimeMillis())
@@ -139,11 +137,12 @@ public class FirstActivity extends BaseActivity {
                 .setContentText("text ")
         ;
 
-        Notification notification =builder.getNotification();
+        Notification notification = builder.getNotification();
 //        new Notification(R.drawable.ic_reminder, "test sscc", System.currentTimeMillis();
 //        notification.setLatestEventInfo();
         manager.notify("ss", 2323, notification);
     }
+
     public void doAdd(View view) {
 
         Random ra = new Random();
@@ -161,7 +160,7 @@ public class FirstActivity extends BaseActivity {
             Note n = new Note().setNotebook_id(ra.nextInt(3) + 1).setNote_name("name" + ra.nextInt(100))
                     .setNote_content("content" + ra.nextInt(100)).setNote_answer("answer" + ra.nextBoolean())
                     .setNote_create_time(new Date().getTime() - ra.nextInt(4) * 24l * 60 * 60 * 1000)
-                    .setNote_next_time(new Date().getTime() + (ra.nextInt(4)+1)*24l*60*60*1000)
+                    .setNote_next_time(new Date().getTime() + (ra.nextInt(4) + 1) * 24l * 60 * 60 * 1000)
                     .setNote_style(ra.nextInt(3)).setNote_level(ra.nextInt(9));
             db.insertNote(n);
         }

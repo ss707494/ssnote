@@ -13,24 +13,29 @@
         android:id="@+id/edit_bottom"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
+        android:weightSum="100"
 
         >
         <Button
             android:layout_width="wrap_content"
+            android:layout_weight="20"
             android:layout_height="wrap_content"
             android:text="back"
             android:onClick="doBack"
             />
         <Button
             android:layout_width="wrap_content"
+            android:layout_weight="20"
             android:layout_height="wrap_content"
             android:text="@string/edit"
             android:onClick="doEdit"
             />
         <Button
             android:layout_width="wrap_content"
+            android:layout_weight="20"
             android:layout_height="wrap_content"
             android:text="Add"
             android:onClick="doAdd"

@@ -11,8 +11,13 @@ public class DateUtil {
 
     public static SimpleDateFormat six_dataformate = new SimpleDateFormat("yyyy,MM,dd,HH,mm,ss");
 
+    public static SimpleDateFormat hour_min = new SimpleDateFormat("HH:mm");
     public static String formatToDay(Long time) {
         return day_formate.format(new Date(time));
+    }
+
+    public static String formatToHour(Long time) {
+        return hour_min.format(new Date(time));
     }
 
     public static String[] sixformatToArray(long time) {

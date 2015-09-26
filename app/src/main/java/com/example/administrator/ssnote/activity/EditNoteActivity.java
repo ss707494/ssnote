@@ -7,26 +7,30 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextClock;
 import android.widget.TextView;
 
 import com.example.administrator.ssnote.R;
 import com.example.administrator.ssnote.base.BaseActivity;
 import com.example.administrator.ssnote.service.RemindService;
+import com.example.administrator.ssnote.util.DateUtil;
 
 /**
  * Created by Administrator on 2015/9/12.
  */
 public class EditNoteActivity extends BaseActivity {
 
-    private TextView message;
-    private Spinner spinnerBook;
-    private EditText title, ques, ans;
+    protected TextView message;
+    protected Spinner spinnerBook;
+    protected EditText title, ques, ans;
+    protected TextClock textClock;
 
-    private void init() {
+    protected void init() {
         message = (TextView) findViewById(R.id.edit_msg);
         title = (EditText) findViewById(R.id.edit_title);
         ques = (EditText) findViewById(R.id.edit_ques);
         ans = (EditText) findViewById(R.id.edit_answer);
+        textClock = (TextClock) findViewById(R.id.text_nexttime);
         initSpinner();
         initData();
     }
@@ -56,6 +60,7 @@ public class EditNoteActivity extends BaseActivity {
         message.setText(msg);
         ques.setText(selectNote.getNote_content());
         ans.setText(selectNote.getNote_answer());
+        textClock.setText(DateUtil.formatToHour(selectNote.getNote_next_time()));
     }
 
 
@@ -83,6 +88,7 @@ public class EditNoteActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        doSave(null);
         finish();
     }
 
@@ -106,5 +112,13 @@ public class EditNoteActivity extends BaseActivity {
 
     public void doEdit(View view) {
         startActivity(new Intent(EditNoteActivity.this, Edit_State.class));
+    }
+
+    /**
+     * delete note
+     */
+    public void doDelete(View view) {
+        db.deleteNote(selectNote.getNote_id());
+        finish();
     }
 }

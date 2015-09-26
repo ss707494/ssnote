@@ -46,7 +46,7 @@ public class Edit_State extends BaseActivity {
         state_style.setText(String.valueOf(selectNote.getNote_style()));
         String[] timeArr = DateUtil.sixformatToArray(selectNote.getNote_next_time());
 
-        datePicker.updateDate(Integer.valueOf(timeArr[0]), Integer.valueOf(timeArr[1]), Integer.valueOf(timeArr[2]));
+        datePicker.updateDate(Integer.valueOf(timeArr[0]), Integer.valueOf(timeArr[1])-1, Integer.valueOf(timeArr[2]));
         timePicker.setIs24HourView(true);
         timePicker.setCurrentHour(Integer.valueOf(timeArr[3]));
         timePicker.setCurrentMinute(Integer.valueOf(timeArr[4]));
@@ -57,6 +57,12 @@ public class Edit_State extends BaseActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_edit__state, menu);
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        doUpdate(null);
     }
 
     @Override
@@ -78,7 +84,7 @@ public class Edit_State extends BaseActivity {
         if (!timePicker.is24HourView()) {
             timePicker.setIs24HourView(true);
         }
-        String date = datePicker.getYear() + "," + datePicker.getMonth() + "," +
+        String date = datePicker.getYear() + "," +( datePicker.getMonth()+1) + "," +
                 datePicker.getDayOfMonth() + "," +
                 timePicker.getCurrentHour() + "," + timePicker.getCurrentMinute()
                 + ",00";
