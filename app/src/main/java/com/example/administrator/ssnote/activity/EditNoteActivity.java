@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextClock;
 import android.widget.TextView;
 
 import com.example.administrator.ssnote.R;
@@ -23,14 +22,14 @@ public class EditNoteActivity extends BaseActivity {
     protected TextView message;
     protected Spinner spinnerBook;
     protected EditText title, ques, ans;
-    protected TextClock textClock;
+    protected TextView textClock;
 
     protected void init() {
         message = (TextView) findViewById(R.id.edit_msg);
         title = (EditText) findViewById(R.id.edit_title);
         ques = (EditText) findViewById(R.id.edit_ques);
         ans = (EditText) findViewById(R.id.edit_answer);
-        textClock = (TextClock) findViewById(R.id.text_nexttime);
+        textClock = (TextView) findViewById(R.id.text_nexttime);
         initSpinner();
         initData();
     }

@@ -13,7 +13,7 @@ public class HandleTimeUtil {
     private static int[][] arrs = {arr1, arr2, arr3};
 
     public static Long handle( int state, int level, long time) {
-        return time + arrs[state][level];
+        return time + arrs[state-1][level];
     }
 
 
