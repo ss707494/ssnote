@@ -11,7 +11,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 
 import com.example.administrator.ssnote.R;
-import com.example.administrator.ssnote.activity.EditNoteActivity;
+import com.example.administrator.ssnote.activity.NoticeActivity;
 import com.example.administrator.ssnote.base.BaseApplication;
 import com.example.administrator.ssnote.dao.SSNoteDb;
 import com.example.administrator.ssnote.entity.Note;
@@ -63,7 +63,7 @@ public class RemindService extends IntentService{
                 manager.cancel("note",noteList.get(i).getNote_id());
 //                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(BaseApplication.getContext()).edit();
 //                editor.putInt("note_id", noteList.get(i).getNote_id()).commit();
-                intent = new Intent(BaseApplication.getContext(), EditNoteActivity.class);
+                intent = new Intent(BaseApplication.getContext(), NoticeActivity.class);
 
 //                Bundle bundle = new Bundle();
 //                bundle.putInt("note_id", noteList.get(i).getNote_id());
